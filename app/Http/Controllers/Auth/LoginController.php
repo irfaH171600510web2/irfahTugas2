@@ -4,26 +4,33 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    protected function validateLogin(Request $request)
+    /*
+    |--------------------------------------------------------------------------
+    | Login Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles authenticating users for the application and
+    | redirecting them to your home screen. The controller uses a trait
+    | to conveniently provide its functionality to your applications.
+    |
+    */
+    protected function validator(request $request)
     {
-        $request->validate([
-            $this->username() => 'required|string',
-            'password' => 'required|string',
+        $request->validator([
+            $this->username()=>'required|string', 'password'=> 'required|string',
+
+
         ]);
     }
+
     public function username()
     {
         return 'phone';
     }
-   protected function credentials(Request $request)
-    {
-        return $request->only($this->username(), 'password');
-    }
+
     use AuthenticatesUsers;
 
     /**
