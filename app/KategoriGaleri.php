@@ -13,6 +13,6 @@ class KategoriGaleri extends Model
     ];
 
     protected $casts=[
-    	
+
     ];
 }

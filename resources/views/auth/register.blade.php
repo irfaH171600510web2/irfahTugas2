@@ -40,6 +40,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('phone number') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
+
+                                @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -61,16 +75,16 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="captcha" class="col-md-4 col-form-label text-md-right">{{ __('Captcha') }}</label>
+                        
+                         <div class="form-group row">
+                            <label for="captcha" class="col-md-4 col-form-label text-md-right">{{ __('captcha') }}</label>
 
                             <div class="col-md-6">
                                 <div class="captcha">
                                     <span>{!! captcha_img() !!}</span>
-                                   <button type="submit" class="btn btn-success btn-refresh" onclick="refreshCaptcha()">Refresh</button>
+                                    <button type="submmit" class="btn btn-success btn-refersh"><a style="text-decoration:none;color:white" href="{{route('register')}}">Refresh</a></button>
 
-                                </div>
-                                <input type="text" id="captcha" class="form-control" placeholder="Enter Captcha" name="captcha">
+                                <input id="captcha" type="text" class="form-control mt-2 @error('captcha') is-invalid @enderror" name="captcha" placeholder="Enter Captcha">
 
                                 @error('captcha')
                                     <span class="invalid-feedback" role="alert">
@@ -79,6 +93,7 @@
                                 @enderror
                             </div>
                         </div>
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
