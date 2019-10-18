@@ -8,10 +8,11 @@
                 <div class="card-header">Tambah Berita</div>
 
                     <div class="card-body">
-                        <form method="post" action="{!! route('berita.store') !!}">
+                         {!! Form::open(['route' => 'berita.store', 'method' => 'post']) !!}
                             @include('berita.form')
-
-
+                       {!! Form::close() !!}
+                            
+                        </form>
                     </div>
                 </div>
             </div>
@@ -19,10 +20,9 @@
     </div>
 
 @endsection
-
 @section('scripts')
 
-<script src="https://cdn.ckeditor.com/4.13.0/full/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
 
 <script>
     $(document).ready(function()  {

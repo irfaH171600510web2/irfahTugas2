@@ -69,7 +69,11 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
-            'password' => Hash::make($data['password'])
+            'password' => Hash::make($data['password']),
         ]);
+    }
+    public function refreshCaptcha()
+    {
+        return captcha_img('flat');
     }
 }

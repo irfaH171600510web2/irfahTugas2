@@ -36,4 +36,45 @@ public function create(){
 		return redirect(route('kategori_pengumuman.index'));
 
 	}
+
+	public function edit($id){
+	$KategoriPengumuman=KategoriPengumuman::find($id);
+
+	
+
+	if(empty($KategoriPengumuman)){
+	return redirect(route('kategori_pengumuman.index'));
+	}
+
+		return view('kategori_pengumuman.edit', compact('KategoriPengumuman'));
+	}
+	public function update($id, Request $request){
+		$KategoriPengumuman=KategoriPengumuman::find($id);
+		$input= $request->all();
+
+	if(empty($KategoriPengumuman)){
+	return redirect(route('kategori_pengumuman.index'));
+	}
+
+	$KategoriPengumuman->update($input);
+
+	return redirect(route ('kategori_pengumuman.index'));
+
+	}
+
+	public function destroy($id){
+	$KategoriPengumuman=KategoriPengumuman::find($id);
+
+	
+	if(empty($KategoriPengumuman)){
+	return redirect(route('kategori_pengumuman.index'));
+	}
+	$KategoriPengumuman->delete();
+	return redirect(route('kategori_pengumuman.index'));
+	} 
+	public function trash(){
+
+    	$listKategoriPengumuman=KategoriPengumuman::onlyTrashed();
+    	return view ('kategori_pengumuman.index', compact('listKategoriPengumuman'));
+ 	 }  
 }

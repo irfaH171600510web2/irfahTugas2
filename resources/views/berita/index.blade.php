@@ -10,7 +10,7 @@
                 <div class="card-body">
                 	<a href="{!! route('berita.create') !!}" class="btn btn-primary"> Tambah Data</a>
                    	<table border="1">
-		<tr>
+		<tr bgcolor="aqua">
 			<td><center> ID </center></td>
 			<td><center> Judul </center></td>
 			<td><center> Isi </center></td>
@@ -33,6 +33,14 @@
 			<td>{!! $item->kategori_berita_id !!}</td>
 			<td>
 			<a href="{!! route('berita.show',[$item->id]) !!}" class="btn btn-primary">Lihat</a>
+
+			<a href="{!! route('berita.edit',[$item->id]) !!}" class="btn btn-warning">Ubah</a>
+
+			{!! Form::open(['route' => ['berita.destroy', $item->id], 'method' => 'delete']) !!}
+
+			{!! Form::submit('Hapus',['class'=>'btn btn-sm btn-danger']); !!}
+
+			{!! Form::close() !!}
 		</td>
 		</tr>
 

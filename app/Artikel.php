@@ -11,6 +11,9 @@ class Artikel extends Model
     protected $fillable=['judul','isi','users_id','kategori_artikel_id'
     ];
 
+    protected $casts=[
+
+    ];
    
 }
 

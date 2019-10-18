@@ -10,7 +10,7 @@
                 <div class="card-body">
                 	<a href="{!! route('galeri.create') !!}" class="btn btn-primary"> Tambah Data</a>
                    <table border="1">
-		<tr>
+		<tr bgcolor="aqua">
 			<td>ID</td>
 			<td>Nama</td>
 			<td>Keterangan</td>
@@ -35,6 +35,13 @@
 			<td>{!! $item->kategori_galeri_id !!}</td>
 			<td>
 			<a href="{!! route('galeri.show',[$item->id]) !!}" class="btn btn-primary">Lihat</a>
+			<a href="{!! route('galeri.edit',[$item->id]) !!}" class="btn btn-warning">Ubah</a>
+
+			{!! Form::open(['route' => ['galeri.destroy', $item->id], 'method' => 'delete']) !!}
+
+			{!! Form::submit('Hapus',['class'=>'btn btn-sm btn-danger']); !!}
+
+			{!! Form::close() !!}
 		</td>
 		</tr>
 
